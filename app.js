@@ -1,11 +1,7 @@
 const express = require('express');
 const app = express();
-
-require('dotenv').config();
-const mongoose = require('mongoose');
-const expressEJSLayouts = require('express-ejs-layouts');
-const session = require('express-session');
-const momment = require('moment');
+const path = require('path');
+const moment = require('moment'); // Ensure moment is required
 const moment_tz = require('moment-timezone');
 const hotkeys = require('hotkeys-js');
 const passport = require('passport');
@@ -13,9 +9,13 @@ const flash = require('connect-flash');
 const zipcodeToTimezone = require('zipcode-to-timezone');
 const Knex = require('knex');
 const ejs = require('ejs');
+const expressEJSLayouts = require('express-ejs-layouts'); // Ensure express-ejs-layouts is required
+
+const routes = require('./Routes/routes.js');
+app.use('/', routes);
 
 const port = 3000;
-app.set('views', __dirname + './views');
+app.set('views', path.join(__dirname, '/views')); // Corrected path
 app.set('view engine', 'ejs');
 app.use(expressEJSLayouts);
 
@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 });
 
 // Locals - exposed to each views
-app.locals.moment = momment;
+app.locals.moment = moment;
 app.locals.moment_tz = moment_tz;
 app.locals.hotkeys = hotkeys;  
 app.locals.zipcodeToTimezone = zipcodeToTimezone;
@@ -48,12 +48,7 @@ app.locals.zipcodeToTimezone = zipcodeToTimezone;
 app.use(express.json());
 
 // Routes
-//app.use('/', require('./routes/routes.js'));
-
-
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-    });
+app.use('/', require('./Routes/routes.js'));
 
 function errorHandler(err, req, res, next) {
     res.status(500);
