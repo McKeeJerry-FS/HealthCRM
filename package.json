@@ -29,5 +29,8 @@
     "mongoose": "^8.9.5",
     "passport": "^0.7.0",
     "zipcode-to-timezone": "^0.0.9"
+  },
+  "devDependencies": {
+    "bulma": "^1.0.3"
   }
 }
