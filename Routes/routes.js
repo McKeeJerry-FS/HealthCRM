@@ -4,4 +4,6 @@ const Dashboard = require('../Controllers/dashboard');
 
 router.get('/', Dashboard.index);
 
+router.get('/account', Dashboard.account);
+
 module.exports = router;

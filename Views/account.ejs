@@ -1,0 +1,54 @@
+
+<h1>Account</h1>
+
+<div class="block">
+    <div class="tabs is-centered">
+        <ul>
+            <li value="0" class="<% if (view === '0') { %> is-active <% }%>"><a><u>O</u>verview</a></li>
+            <li value="1" class="<% if (view === '1') { %> is-active <% }%>"><a><u>D</u>iagnosis</a></li>
+            <li value="2" class="<% if (view === '2') { %> is-active <% }%>"><a><u>P</u>rescriptions</a></li>
+            <li value="3" class="<% if (view === '3') { %> is-active <% }%>"><a><u>T</u>reatment Plan</a></li>
+        </ul>
+    </div>
+</div>
+<div class="columns">
+    <div class="column">
+        <div class="columns">
+            <div class="column">                   
+                <div class="block">
+                    <% switch(view) {
+                        case '0':
+                            %> <%- include('./partials/overview'); %> <%
+                        break;
+                        case '1':
+                            %> <%- include('./partials/diagnosis'); %> <%
+                        break;
+                        case '2':
+                            %> <%- include('./partials/prescriptions'); %> <%
+                        break;
+                        case '3':
+                            %> <%- include('./partials/treatment'); %> <%
+                        break;
+                        case undefined:
+                        case null: 
+                        default:                               
+                            %> <%- include('./partials/overview'); %> <%
+                        break;
+                    } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(async ()=>{
+        $('#account_tabs li').on("click", (e)=>{
+            // Switches to the selected account tab
+            let val = $(e.target).parent().val()
+            location.href = val
+        })
+
+        await cacheContent('<%- account.acctnum %>')
+    })
+</script>
