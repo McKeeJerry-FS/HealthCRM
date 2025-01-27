@@ -3,6 +3,10 @@ exports.index = (req, res) => {
 }
 
 exports.account = (req, res) => {
-    const view = req.query.view || '0'; // Default to '0' if not provided
-    res.render('patients/account', { view, title: 'Account' });
+    const view = req.params.view || '1'; // Default to '0' if not provided
+    res.render('patients/account', { view: view, title: 'Account' });
+}
+
+exports.diagnosis = (req, res) => {
+    res.render('patients/partials/diagnosis', { title: 'Diagnosis' });
 }

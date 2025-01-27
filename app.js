@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static Files
-app.use(express.static('public'));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // Session
 app.use(session({
