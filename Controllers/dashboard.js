@@ -3,5 +3,6 @@ exports.index = (req, res) => {
 }
 
 exports.account = (req, res) => {
-    res.render('account', { title: 'Account' });
+    const view = req.query.view || '0'; // Default to '0' if not provided
+    res.render('patients/account', { view, title: 'Account' });
 }
