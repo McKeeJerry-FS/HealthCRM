@@ -19,7 +19,7 @@
                 <div class="block">
                     <% switch(view) {
                         case '0':
-                            %> <%- include('./partials/overview'); %> <%
+                            %> <%- include('./partials/overview', {patient: patient}); %> <%
                         break;
                         case '1':
                             %> <%- include('./partials/diagnosis'); %> <%

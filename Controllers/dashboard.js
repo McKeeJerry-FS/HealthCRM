@@ -19,7 +19,14 @@ exports.dashboard = async (req, res) => {
     }
 }
 
-exports.account = (req, res) => {
-    const view = req.params.view || '1'; // Default to '0' if not provided
-    res.render('patients/account', { view: view, title: 'Account' });
+exports.account = async (req, res) => {
+    const view = req.params.view || '0'; // Default to '1' if not provided
+    const patientId = req.params.patient_id;
+
+    try {
+        const patient = await Queue.getPatientAccount(patientId); // Assuming you have a method to get patient by ID
+        res.render('patients/account', { view: view, title: 'Account', patient: patient });
+    } catch (error) {
+        res.status(500).send('Error retrieving patient data');
+    }
 }

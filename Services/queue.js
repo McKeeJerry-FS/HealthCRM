@@ -8,6 +8,14 @@ module.exports = {
         .select('*');
         console.log(data[0]);
         return data;
+    },
+    getPatientAccount: async (patientId) => {
+        const data = await db('accounts')
+        .select('*')
+        .where({
+            'patient_id' : patientId
+        });
+        return data;
     }
     
 
