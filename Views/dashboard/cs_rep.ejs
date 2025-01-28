@@ -17,41 +17,20 @@
                 <table class="table is-hoverable is-striped is-fullwidth is-narrow">
                     <thead>
                         <tr>
-                            <th>Account ID</th>
-                            <th>Account Name</th>
-                            <th>Account Type</th>
-                            <th>Balance</th>
-                            <th>Actions</th>
+                            <th>Patient ID</th>
+                            <th>Patient Name</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Checking</td>
-                            <td>Checking</td>
-                            <td>$100.00</td>
-                            <td>
-                                <a href="/account/1" class="button is-primary">View</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Savings</td>
-                            <td>Savings</td>
-                            <td>$200.00</td>
-                            <td>
-                                <a href="/account/2" class="button is-primary">View</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Investment</td>
-                            <td>Investment</td>
-                            <td>$300.00</td>
-                            <td>
-                                <a href="/account/3" class="button is-primary">View</a>
-                            </td>
-                        </tr>
+                        <% accounts.forEach(account => { %>
+                            <tr>
+                                <td class="has-text-dark"><%- account.patient_id %></td>
+                                <td class="has-text-dark"><%- account.last_name %>, <%- account.first_name %></td>
+                                <td>
+                                    <a href="/account/<%- account.id %>" class="button is-primary">View</a>
+                                </td>
+                            </tr>
+                            <% }); %>
                     </tbody>
                 </table>
             </div>

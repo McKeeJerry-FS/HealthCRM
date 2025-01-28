@@ -1,17 +1,15 @@
-const { connection } = require('mongoose');
-
 require('dotenv').config();
 
 module.exports = {
 
     development: {
-        client: ' ',
+        client: 'pg',
         connection: {
-            host: ' ',
-            user: ' ',
-            password: ' ',
-            database: ' ',
-            charset: 'utf8'
-        },
+            host: 'localhost',
+            user: 'postgres',
+            password: 'Momiji21',
+            database: 'Healthcare_CRM',
+            port: 5432
+        }
     },
 };

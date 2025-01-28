@@ -4,7 +4,7 @@ const knex = require('knex')({
         host: 'localhost',
         user: 'postgres',
         password: 'Momiji21',
-        database: 'postgres',
+        database: 'Healthcare_CRM',
         port: 5432
     }
 });
