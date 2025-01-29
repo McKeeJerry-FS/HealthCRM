@@ -25,7 +25,7 @@ exports.account = async (req, res) => {
 
     try {
         const patient = await Queue.getPatientAccount(patientId); // Assuming you have a method to get patient by ID
-        res.render('patients/account', { view: view, title: 'Account', patient: patient });
+        res.render('patients/account', { title: 'Account', patient: patient, view: view, });
     } catch (error) {
         res.status(500).send('Error retrieving patient data');
     }

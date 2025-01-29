@@ -14,6 +14,6 @@ module.exports = {
         .select('*')
         .where({'patient_id' : patientId});
         console.log(data);
-        return data;
+        return data[0];
     }
 };
