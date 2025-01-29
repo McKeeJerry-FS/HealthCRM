@@ -12,12 +12,8 @@ module.exports = {
     getPatientAccount: async (patientId) => {
         const data = await db('accounts')
         .select('*')
-        .where({
-            'patient_id' : patientId
-        });
+        .where({'patient_id' : patientId});
+        console.log(data);
         return data;
     }
-    
-
-
 };

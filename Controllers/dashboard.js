@@ -20,7 +20,7 @@ exports.dashboard = async (req, res) => {
 }
 
 exports.account = async (req, res) => {
-    const view = req.params.view || '0'; // Default to '1' if not provided
+    const view = req.params.view || '0'; // Default to '0' if not provided
     const patientId = req.params.patient_id;
 
     try {
