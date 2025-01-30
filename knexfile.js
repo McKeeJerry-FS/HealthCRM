@@ -22,4 +22,14 @@ module.exports = {
             port: 5432
         }
     },
+    development_3: {
+        client: 'pg',
+        connection: {
+            host: 'localhost',
+            user: 'postgres',
+            password: 'Momiji24',
+            database: 'Healthcare_CRM',
+            port: 5433
+        }
+    },
 };
